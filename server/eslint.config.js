@@ -13,7 +13,7 @@ export default defineConfig([
     rules: {
       'semi': ['error', 'always'],
       'quotes': ['error', 'single'],
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      // 'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
 ]);
