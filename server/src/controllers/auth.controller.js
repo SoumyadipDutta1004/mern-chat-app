@@ -120,9 +120,21 @@ async function updateProfile(req, res) {
   }
 }
 
+function checkAuth(req, res) {
+  try {
+    return res.status(200).json(req.user);
+  } 
+  catch (err) {
+    console.error(`Error in checkAuth controller ${err.message}`);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+
 export {
   signup,
   login,
   logout,
-  updateProfile
+  updateProfile,
+  checkAuth
 };
