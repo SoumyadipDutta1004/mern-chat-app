@@ -1,9 +1,10 @@
-import { Outlet } from "react-router";
 import { useEffect } from "react";
+import { Outlet } from "react-router";
+import { LuLoaderCircle } from "react-icons/lu";
 
 import Navbar from "./components/Navbar";
 import useAuthStore from "./store/useAuthStore";
-import { Loader } from "lucide-react";
+import { Toaster } from "sonner";
 // import axiosInstance from "./utils/axios.js";
 
 
@@ -20,17 +21,18 @@ export default function App() {
     checkAuth();
   }, [checkAuth]);
   
-  console.log({ authUser });
+  // console.log({ authUser });
 
   if(isCheckingAuth && !authUser){
     return <div className="flex justify-center items-center h-screen">
-      <Loader className="size-10 animate-spin" />
+      <LuLoaderCircle className="size-10 animate-spin" />
     </div>;
   }
   
 
   return (
     <div>
+      <Toaster richColors position="top-center" closeButton />
       <Navbar />
 
       <Outlet />
